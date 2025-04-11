@@ -19,7 +19,7 @@ class UserController extends Controller {
 
     public function add(Request $request) {
         $rules = [
-            'username' => 'required|max:20',
+            'username' => 'required|max:20', 
             'password' => 'required|max:20',
             'gender' => 'required|in:Male,Female',
         ];
