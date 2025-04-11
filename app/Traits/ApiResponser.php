@@ -2,22 +2,29 @@
 
 namespace App\Traits;
 
+use Illuminate\Http\Response;
+
 trait ApiResponser
 {
-    public function successResponse($data, $message = "Success", $code = 200)
+    /**
+     * Build success response
+     * @param string|array $data
+     * @param int $code
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function successResponse($data, $code = Response::HTTP_OK)
     {
-        return response()->json([
-            'status' => 'success',
-            'message' => $message,
-            'data' => $data
-        ], $code);
+        return response()->json(['data' => $data, 'site' => 2], $code);
     }
 
+    /**
+     * Build error response
+     * @param string|array $message
+     * @param int $code
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function errorResponse($message, $code)
     {
-        return response()->json([
-            'status' => 'error',
-            'message' => $message
-        ], $code);
+        return response()->json(['data' => $data, 'site' => 2], $code);
     }
 }
